@@ -11,7 +11,8 @@
         android:roundIcon="@drawable/oval"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".unittrift"></activity>
+        <activity android:name=".viewmemberlistbycds"></activity>
+        <activity android:name=".unittrift" />
         <activity android:name=".Updatedeletepresi" />
         <activity android:name=".Memafterregi" />
         <activity android:name=".Attendence" />

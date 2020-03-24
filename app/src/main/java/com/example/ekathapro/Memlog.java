@@ -26,6 +26,7 @@ public class Memlog extends AppCompatActivity {
     Spinner s1,s2;
     Memb mem;
     DatabaseReference refer;
+    int f=0;
     int i,j;
 
     @Override
@@ -72,13 +73,15 @@ public class Memlog extends AppCompatActivity {
                                     {
                                         mem=snapshot.getValue(Memb.class);
                                         String pass=mem.mpassw;
-                                        if(pass.equals(passna))
+                                        if(pass.equals(passna)&&userna.equalsIgnoreCase(mem.muser))
                                         {
 
                                             Toast.makeText(getApplicationContext(), "login success", Toast.LENGTH_SHORT).show();
 
                                             SharedPreferences.Editor editor=getSharedPreferences("Memlogin",MODE_PRIVATE).edit();
                                             editor.putString("member",userna);
+                                            editor.putString("ward", mem.mward);
+                                            editor.putString("unitnum", mem.munitnum);
                                             editor.commit();
 
                                             Intent inte = new Intent(getApplicationContext(), memlogged.class);

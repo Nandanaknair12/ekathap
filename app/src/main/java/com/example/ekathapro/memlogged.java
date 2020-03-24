@@ -30,6 +30,7 @@ public class memlogged extends AppCompatActivity {
     ArrayList<Memb> list;
     long backpress;
     Toast backToast;
+    String ward,unitno;
 
 
     @Override
@@ -41,6 +42,13 @@ public class memlogged extends AppCompatActivity {
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         list=new ArrayList<Memb>();
+
+        SharedPreferences sharedPreferences=getSharedPreferences("Memlogin",MODE_PRIVATE);
+        ward=sharedPreferences.getString("ward",null);
+        unitno=sharedPreferences.getString("unitnum",null);
+
+        Toast.makeText(this, ward, Toast.LENGTH_SHORT).show();
+
         b1=(Button)findViewById(R.id.memberlist);
         b2=(Button)findViewById(R.id.requestloan);
         b3=(Button)findViewById(R.id.viewattendance);
@@ -51,7 +59,7 @@ public class memlogged extends AppCompatActivity {
         b8=(Button)findViewById(R.id.complaints);
         b9=(Button)findViewById(R.id.privacy);
 
-        refee= FirebaseDatabase.getInstance().getReference().child("Member");
+        refee= FirebaseDatabase.getInstance().getReference().child(ward).child(unitno).child("Member");
         refee.addValueEventListener(new ValueEventListener()
         {
             @Override

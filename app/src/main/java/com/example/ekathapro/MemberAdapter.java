@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.EditText;
 import android.widget.TextView;
 
 import com.google.firebase.database.DatabaseReference;
@@ -21,7 +22,6 @@ public class MemberAdapter extends RecyclerView.Adapter<MemberAdapter.MemberView
     private ValueEventListener mCtx;
     private ArrayList<Memb> memb;
     Context context;
-    DatabaseReference reference;
 
     MemberAdapter(Context context, ArrayList<Memb> itemList)
     {
@@ -44,17 +44,12 @@ public class MemberAdapter extends RecyclerView.Adapter<MemberAdapter.MemberView
         holder.t1.setText(memb.get(position).getMname());
         holder.t2.setText(memb.get(position).getMmobile());
 
-
-        reference= FirebaseDatabase.getInstance().getReference().child("Member");
-
-
-
         holder.itemView.setOnClickListener(new View.OnClickListener()
         {
             @Override
             public void onClick(View v)
             {
-                Intent intent=new Intent(v.getContext(),memlogged.class);
+                Intent intent=new Intent(v.getContext(),viewmemberlistbycds.class);
                 intent.putExtra("shopID",memb.get(position).getMname());
                 v.getContext().startActivity(intent);
 
@@ -71,12 +66,12 @@ public class MemberAdapter extends RecyclerView.Adapter<MemberAdapter.MemberView
 
     class MemberViewHolder extends RecyclerView.ViewHolder
     {
-        TextView t1,t2;
+        EditText t1,t2;
 
         public MemberViewHolder(@NonNull View ownerView) {
             super(ownerView);
-            t1=(TextView) ownerView.findViewById(R.id.membername);
-            t2=(TextView)ownerView.findViewById(R.id.mobilenumber);
+            t1=(EditText) ownerView.findViewById(R.id.membername);
+            t2=(EditText) ownerView.findViewById(R.id.mobilenumber);
         }
     }
 }
