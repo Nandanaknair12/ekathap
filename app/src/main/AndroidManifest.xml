@@ -11,14 +11,14 @@
         android:roundIcon="@drawable/oval"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".viewmemberlistbycds"></activity>
+        <activity android:name=".viewmemberlistbycds"/>
         <activity android:name=".unittrift" />
-        <activity android:name=".Updatedeletepresi" />
+        <activity android:name=".Updatedeletepresi" android:parentActivityName=".Cdshome"/>
         <activity android:name=".Memafterregi" />
         <activity android:name=".Attendence" />
-        <activity android:name=".unitreport" />
-        <activity android:name=".unitexpenses" />
-        <activity android:name=".unitmembers" />
+        <activity android:name=".unitreport" android:parentActivityName=".Cdshome"/>
+        <activity android:name=".unitexpenses" android:parentActivityName=".Cdshome"/>
+        <activity android:name=".unitmembers" android:parentActivityName=".Cdshome"/>
         <activity android:name=".Acceptingmem" />
         <activity android:name=".privacy" />
         <activity android:name=".complaints" />
@@ -31,13 +31,13 @@
         <activity android:name=".requestloan" />
         <activity android:name=".memlogged" />
         <activity android:name=".Presihome" />
-        <activity android:name=".Acceptingpresi" />
-        <activity android:name=".Cdshome" />
-        <activity android:name=".Memregi" />
-        <activity android:name=".Cdslog" />
-        <activity android:name=".Memlog" />
-        <activity android:name=".Unitpresilog" />
-        <activity android:name=".Unitpresregi" />
+        <activity android:name=".Acceptingpresi" android:parentActivityName=".Cdshome"/>
+        <activity android:name=".Cdshome"/>
+        <activity android:name=".Memregi" android:parentActivityName=".Memlog"/>
+        <activity android:name=".Cdslog" android:parentActivityName=".MainActivity"/>
+        <activity android:name=".Memlog" android:parentActivityName=".MainActivity"/>
+        <activity android:name=".Unitpresilog" android:parentActivityName=".MainActivity"/>
+        <activity android:name=".Unitpresregi" android:parentActivityName=".Unitpresilog" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

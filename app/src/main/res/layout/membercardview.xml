@@ -9,7 +9,7 @@
         android:orientation="horizontal">
 
         <EditText android:layout_height="40dp"
-            android:layout_width="178dp"
+            android:layout_width="170dp"
             android:text="  Member  name"
             android:padding="6dp"
             android:background="@drawable/textbox"
@@ -20,7 +20,7 @@
             android:id="@+id/membername"/>
 
         <EditText android:layout_height="40dp"
-            android:layout_width="178dp"
+            android:layout_width="170dp"
             android:text=" Mobile  number"
             android:textSize="20dp"
             android:background="@drawable/textbox"

@@ -41,7 +41,7 @@ public class MemberAdapter extends RecyclerView.Adapter<MemberAdapter.MemberView
     @Override
     public void onBindViewHolder(@NonNull final MemberViewHolder holder, final int position)
     {
-        holder.t1.setText(memb.get(position).getMname());
+        holder.t1.setText(memb.get(position).getMuser());
         holder.t2.setText(memb.get(position).getMmobile());
 
         holder.itemView.setOnClickListener(new View.OnClickListener()
@@ -50,7 +50,7 @@ public class MemberAdapter extends RecyclerView.Adapter<MemberAdapter.MemberView
             public void onClick(View v)
             {
                 Intent intent=new Intent(v.getContext(),viewmemberlistbycds.class);
-                intent.putExtra("shopID",memb.get(position).getMname());
+                intent.putExtra("shopID",memb.get(position).getMuser());
                 v.getContext().startActivity(intent);
 
             }

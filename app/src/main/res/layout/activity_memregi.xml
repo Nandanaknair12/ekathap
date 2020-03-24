@@ -1,10 +1,10 @@
 <ScrollView android:layout_height="match_parent"
     android:layout_width="match_parent"
+    android:background="@drawable/img2"
     xmlns:android="http://schemas.android.com/apk/res/android">
 
     <LinearLayout android:layout_height="match_parent"
         android:layout_width="match_parent"
-        android:background="@drawable/img2"
         android:orientation="vertical"
         xmlns:android="http://schemas.android.com/apk/res/android">
 
@@ -30,14 +30,13 @@
 
             <TableRow android:layout_height="wrap_content"
                 android:layout_width="match_parent">
-                <TextView
-                    android:layout_marginTop="5dp" android:layout_height="wrap_content"
+                <TextView android:layout_height="wrap_content"
                     android:layout_width="150dp"
-                    android:text="UnitNumber"
+                    android:text="WardNumber"
                     android:textSize="20dp"/>
 
                 <Spinner
-                    android:id="@+id/munitnum"
+                    android:id="@+id/mward"
                     android:entries="@array/war"
                     android:layout_height="wrap_content"
                     android:layout_width="match_parent"/>
@@ -58,13 +57,14 @@
             </TableRow>  <TableRow android:layout_height="wrap_content"
             android:layout_width="match_parent">
 
-            <TextView android:layout_height="wrap_content"
+            <TextView
+                android:layout_marginTop="5dp" android:layout_height="wrap_content"
                 android:layout_width="150dp"
-                android:text="WardNumber"
+                android:text="UnitNumber"
                 android:textSize="20dp"/>
 
             <Spinner
-                android:id="@+id/mward"
+                android:id="@+id/munitnum"
                 android:entries="@array/war"
                 android:layout_height="wrap_content"
                 android:layout_width="match_parent"/>

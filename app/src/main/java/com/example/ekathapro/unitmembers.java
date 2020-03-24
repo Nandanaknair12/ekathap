@@ -32,6 +32,7 @@ public class unitmembers extends AppCompatActivity {
     RecyclerView recyclerView;
     MemberAdapter adapter;
     ArrayList<Memb> list;
+    Button seemem;
 
 
     @Override
@@ -42,35 +43,47 @@ public class unitmembers extends AppCompatActivity {
         s1=(Spinner)findViewById(R.id.mward2);
         s2=(Spinner)findViewById(R.id.munit2);
 
-        wardn=s1.getSelectedItem().toString();
-        unitn=s2.getSelectedItem().toString();
+        seemem=(Button)findViewById(R.id.seemembers);
 
-        recyclerView=(RecyclerView)findViewById(R.id.rv);
+        recyclerView=(RecyclerView)findViewById(R.id.recycle2);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         list=new ArrayList<Memb>();
 
-        refee= FirebaseDatabase.getInstance().getReference().child(wardn).child(unitn).child("Member");
-        refee.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot)
-            {
-                for (DataSnapshot studentDatasnapshot : dataSnapshot.getChildren())
-                {
-                    Memb member = studentDatasnapshot.getValue(Memb.class);
-                    if (member.status.equals(true))
-                    {
-                        list.add(member);
-                    }
-                }
-                adapter = new MemberAdapter(unitmembers.this,list);
-                recyclerView.setAdapter(adapter);
-            }
 
+        seemem.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onCancelled(@NonNull DatabaseError databaseError)
-            {
-                Toast.makeText(getApplicationContext(),"something wnt wrong",Toast.LENGTH_LONG).show();
+            public void onClick(View v) {
+
+                list.clear();
+
+                wardn=s1.getSelectedItem().toString();
+                unitn=s2.getSelectedItem().toString();
+
+                refee= FirebaseDatabase.getInstance().getReference().child(wardn).child(unitn).child("Member");
+                refee.addValueEventListener(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot dataSnapshot)
+                    {
+                        for (DataSnapshot studentDatasnapshot : dataSnapshot.getChildren())
+                        {
+                            Memb member = studentDatasnapshot.getValue(Memb.class);
+                            if (member.status.equals(true))
+                            {
+                                list.add(member);
+                            }
+                        }
+                        adapter = new MemberAdapter(unitmembers.this,list);
+                        recyclerView.setAdapter(adapter);
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError databaseError)
+                    {
+                        Toast.makeText(getApplicationContext(),"something wnt wrong",Toast.LENGTH_LONG).show();
+                    }
+                });
+
             }
         });
 
